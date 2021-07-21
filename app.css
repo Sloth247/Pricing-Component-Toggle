@@ -43,6 +43,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   border: none;
   width: 100%;
@@ -101,6 +105,10 @@ li {
   align-items: center;
   color: hsl(234, 14%, 74%);
 }
+.header__monthly {
+  grid-column: 3/-1;
+  grid-row: 1 / 2;
+}
 .header__switch {
   position: relative;
   display: inline-block;
@@ -154,7 +162,6 @@ li {
 
 .plans-cta {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   row-gap: 2rem;
   grid-row-gap: 2rem;
@@ -166,6 +173,7 @@ li {
   color: hsl(233, 13%, 49%);
   border-radius: 1rem;
   display: grid;
+  grid-template-rows: repeat(4, minmax(min-content, max-content));
   row-gap: 2rem;
   justify-items: center;
   align-items: center;
@@ -197,26 +205,23 @@ li {
   border: 1px solid #fff;
 }
 
+.plan__title {
+  grid-row: 1 / 2;
+}
+
 .plan__price {
-  font-size: 6.5rem;
+  font-size: 6rem;
   color: hsl(232, 13%, 33%);
   display: flex;
   align-items: center;
+  grid-row: 2 / 3;
 }
 
 .plan__price span {
   font-size: 4rem;
 }
 
-.plan__price--monthly {
-  display: none;
-}
-
-.header__checkbox:checked ~ * .plan__price--monthly {
-  display: flex;
-}
-
-.header__checkbox:checked ~ * .plan__price--annual {
+.hidden {
   display: none;
 }
 
@@ -225,6 +230,7 @@ li {
   flex-direction: column;
   width: 100%;
   border-top: 1px solid hsl(234, 14%, 74%);
+  grid-row: 3 / 4;
 }
 .plan__storage {
   border-bottom: 1px solid hsl(234, 14%, 74%);
@@ -238,6 +244,9 @@ li {
   padding: 1.5rem;
   border-bottom: 1px solid hsl(234, 14%, 74%);
 }
+.plan__btn {
+  grid-row: 4/-1;
+}
 
 @media screen and (min-width: 62.5em) {
   body {
@@ -246,27 +255,43 @@ li {
     background-position: right top, left bottom;
   }
   .container {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-columns: 1fr;
+    max-width: 100%;
     row-gap: 10rem;
     grid-row-gap: 10rem;
+    padding: 0;
+    margin: auto;
   }
+
   .header {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
     padding-top: 0;
     row-gap: 5rem;
     grid-row-gap: 5rem;
   }
 
   .plans-cta {
-    grid-template-rows: 1fr;
+    grid-row: 2/3;
+    grid-column: 1 / -1;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    place-content: center;
+    grid-column-gap: 0.2rem;
+    column-gap: 0.2rem;
   }
 
   .plan__card {
-    padding: 10% 10%;
+    width: 30rem;
+
+    padding: 10% 7%;
   }
+
   .plan__card--middle {
     height: 110%;
     justify-self: center;
     align-self: center;
+    place-content: center;
   }
 }
