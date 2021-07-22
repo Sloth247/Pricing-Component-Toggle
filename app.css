@@ -114,13 +114,15 @@ a {
   display: inline-block;
   width: 6rem;
   height: 3.5rem;
+  grid-row: 1/2;
+  grid-column: 2 / 3;
 }
 .header__switch:hover {
   opacity: 0.7;
 }
 
 .header__checkbox {
-  opacity: 0;
+  opacity: 1;
   width: 0;
   height: 0;
 }
@@ -221,9 +223,28 @@ a {
   font-size: 4rem;
 }
 
+/* toggle did not work by only CSS 
+
+.header__checkbox:not(:checked) ~ * .plan__price--annual {
+  display: block;
+}
+
+.header__checkbox:checked ~ * .plan__price--monthly {
+  display: block;
+}
+.header__checkbox:checked ~ * .plan__price--annual {
+  display: none;
+}
+
+*/
+
 .hidden {
   display: none;
 }
+
+/* .hidden {
+  display: none;
+} */
 
 .plan__details {
   display: flex;
