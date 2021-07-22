@@ -5,11 +5,11 @@ const price = document.querySelectorAll(".plan__price");
 const monthly = document.querySelectorAll(".plan__price--monthly");
 const annual = document.querySelectorAll(".plan__price--annual");
 
-console.log(annual);
-
-slider.addEventListener("click", function () {
-  monthly.classList.toggle("hidden");
-  annual.classList.toggle("hidden");
+slider.addEventListener("change", function () {
+  togglePrices(monthly);
+  togglePrices(annual);
 });
 
-console.log(slider.checked);
+function togglePrices(array) {
+  array.forEach((item) => item.classList.toggle("hidden"));
+}
